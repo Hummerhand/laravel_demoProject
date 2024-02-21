@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class About extends Model
 {
     use HasFactory;
 
@@ -14,10 +14,8 @@ class Post extends Model
         'preview',
         'description',
         'thumbnail',
+        'phoneNumber',
+        'location',
+        'email',
     ];
-
-    public function comments()
-    {
-        $this->hasMany(Comment::class)->orderBy('created_at');
-    }
 }

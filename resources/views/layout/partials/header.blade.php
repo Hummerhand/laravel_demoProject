@@ -21,7 +21,13 @@
                             <a href="{{ route('about') }}">{{ __('About') }}</a>
                             <a href="{{ route('photos.photo') }}">{{ __('Gallery') }}</a>
                             <a href="{{ route('services.service') }}">{{ __('Service') }}</a>
-                            <a href="blog.html">Blog</a>
+                            @auth('web')
+                                <a href="{{ route('logout') }}" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">{{ __('Выйти') }}</a>
+                            @endauth
+
+                            @guest('web')
+                                <a href="{{ route('login') }}" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">{{ __('Войти') }}</a>
+                            @endguest
                         </div>
                     </div>
                 </div>

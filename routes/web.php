@@ -40,7 +40,22 @@ Route::get('/photos', [\App\Http\Controllers\PhotoController::class, 'index'])->
 Route::get('/photos/{id}', [\App\Http\Controllers\PhotoController::class, 'show'])->name('photos.show');
 
 
+Route::middleware('guest')->group(function() {
+
+    Route::get('/login', [\App\Http\Controllers\AuthUsersController::class, 'ShowLoginForm'])->name('login');
+
+    Route::post('/login_process', [\App\Http\Controllers\AuthUsersController::class, 'login'])->name('login_process');
+
+    Route::get('/register', [\App\Http\Controllers\AuthUsersController::class, 'ShowRegisterForm'])->name('register');
+
+    Route::post('/register_process', [\App\Http\Controllers\AuthUsersController::class, 'register'])->name('register_process');
+});
+
+
 Route::middleware('auth')->group(function () {
+
+    Route::get('/logout', [\App\Http\Controllers\AuthUsersController::class, 'logout'])->name('logout');
+
     Route::post('/contact_process', [\App\Http\Controllers\IndexController::class, 'contact_process'])->name('contact_process');
 
     Route::post('/subscribe_process', [\App\Http\Controllers\IndexController::class, 'subscribe_process'])->name('subscribe_process');

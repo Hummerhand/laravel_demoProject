@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function comments()
+    {
+        $this->hasMany(Comment::class)->orderBy('created_at');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
