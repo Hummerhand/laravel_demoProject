@@ -49,6 +49,11 @@ Route::middleware('guest')->group(function() {
     Route::get('/register', [\App\Http\Controllers\AuthUsersController::class, 'ShowRegisterForm'])->name('register');
 
     Route::post('/register_process', [\App\Http\Controllers\AuthUsersController::class, 'register'])->name('register_process');
+
+
+    Route::post('/contact_process', [\App\Http\Controllers\IndexController::class, 'contact_process'])->name('contact_process');
+
+    Route::post('/subscribe_process', [\App\Http\Controllers\IndexController::class, 'subscribe_process'])->name('subscribe_process');
 });
 
 
@@ -56,8 +61,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/logout', [\App\Http\Controllers\AuthUsersController::class, 'logout'])->name('logout');
 
-    Route::post('/contact_process', [\App\Http\Controllers\IndexController::class, 'contact_process'])->name('contact_process');
-
-    Route::post('/subscribe_process', [\App\Http\Controllers\IndexController::class, 'subscribe_process'])->name('subscribe_process');
+    Route::post('posts/comment/{id}', [\App\Http\Controllers\PostController::class, 'comment'])->name('comment');
 });
 
