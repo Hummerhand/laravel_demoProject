@@ -50,6 +50,10 @@ Route::middleware('guest')->group(function() {
 
     Route::post('/register_process', [\App\Http\Controllers\AuthUsersController::class, 'register'])->name('register_process');
 
+    Route::get('/forgot', [\App\Http\Controllers\AuthUsersController::class, 'ShowForgotForm'])->name('forgot');
+
+    Route::post('/forgot_process', [\App\Http\Controllers\AuthUsersController::class, 'forgot'])->name('forgot_process');
+
 
     Route::post('/contact_process', [\App\Http\Controllers\IndexController::class, 'contact_process'])->name('contact_process');
 
