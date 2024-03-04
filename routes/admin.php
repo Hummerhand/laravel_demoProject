@@ -59,6 +59,21 @@ Route::middleware('auth:admin')->group(function () {
    Route::put('/photos/{photo}', [\App\Http\Controllers\Admin\PhotoController::class, 'update'])->name('admin.photos.update');
 
    Route::delete('/photos/{photo}', [\App\Http\Controllers\Admin\PhotoController::class, 'delete'])->name('admin.photos.delete');
+
+
+   Route::get('/about', [\App\Http\Controllers\Admin\AboutController::class, 'index'])->name('admin.about.index');
+
+   Route::get('/about/create', [\App\Http\Controllers\Admin\AboutController::class, 'create'])->name('admin.about.create');
+
+   Route::post('/about/store', [\App\Http\Controllers\Admin\AboutController::class, 'store'])->name('admin.about.store');
+
+   Route::get('/about/{about}', [\App\Http\Controllers\Admin\AboutController::class, 'show'])->name('admin.about.show');
+
+   Route::get('/about/{about}/edit', [\App\Http\Controllers\Admin\AboutController::class, 'edit'])->name('admin.about.edit');
+
+   Route::put('/about/{about}', [\App\Http\Controllers\Admin\AboutController::class, 'update'])->name('admin.about.update');
+
+   Route::delete('/about/{about}', [\App\Http\Controllers\Admin\AboutController::class, 'delete'])->name('admin.about.delete');
 });
 
 

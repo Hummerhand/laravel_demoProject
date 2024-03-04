@@ -39,6 +39,10 @@ Route::get('/photos', [\App\Http\Controllers\PhotoController::class, 'index'])->
 
 Route::get('/photos/{id}', [\App\Http\Controllers\PhotoController::class, 'show'])->name('photos.show');
 
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
+
+Route::get('/about/{id}', [\App\Http\Controllers\AboutController::class, 'show'])->name('about.about');
+
 
 Route::middleware('guest')->group(function() {
 

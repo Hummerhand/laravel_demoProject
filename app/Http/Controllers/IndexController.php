@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ContactFormRequest;
 use App\Http\Requests\SubscribeFormRequest;
 use App\Mail\ContactForm;
+use App\Models\About;
 use App\Models\ContactUs;
 use App\Models\Photo;
 use App\Models\Post;
@@ -26,7 +27,9 @@ class IndexController extends Controller
 
         $photos = Photo::query()->orderBy('created_at', 'ASC')->get();
 
-        return view('index', compact('services', 'posts', 'testimonials', 'photos'));
+        $about = About::query()->first();
+
+        return view('index', compact('services', 'posts', 'testimonials', 'photos', 'about'));
     }
 
     public function about()

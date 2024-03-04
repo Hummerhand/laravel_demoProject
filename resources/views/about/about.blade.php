@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('title', 'Главная страница')
+@section('title', 'О Нас')
 
 @section('content')
 
@@ -12,20 +12,18 @@
       <div class="row">
         <div class="col-md-6">
           <div class="img-box">
-            <img src="{{ asset('assets/images/about-img.jpg') }}" alt="">
+            <img src="/storage/abouts{{ $about->thumbnail }}" alt="">
           </div>
         </div>
         <div class="col-md-6">
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                  {{ __("О НАС") }}
+                  {{ $about->title }}
               </h2>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti dolorem eum consequuntur ipsam repellat dolor soluta aliquid laborum, eius odit consectetur vel quasi in quidem, eveniet ab est corporis tempore.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur commodi nam nostrum quo sint? A, at atque dignissimos dolore, fuga impedit ipsa magnam modi nemo placeat, quos reprehenderit voluptatibus.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto atque aut consequatur corporis deleniti et hic, illum impedit ipsum laudantium molestias optio possimus qui quod, sapiente unde velit! Quae?
+                {{ $about->discription }}
             </p>
             <a href="{{ route('home') }}">
               {{ __("Back") }}

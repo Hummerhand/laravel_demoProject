@@ -18,7 +18,7 @@
                     <div id="myNav" class="overlay">
                         <div class="overlay-content">
                             <a href="{{ route('home') }}">{{ __('Home') }}</a>
-                            <a href="{{ route('about') }}">{{ __('About') }}</a>
+
                             <a href="{{ route('photos.photo') }}">{{ __('Gallery') }}</a>
                             <a href="{{ route('services.service') }}">{{ __('Service') }}</a>
                             @auth('web')

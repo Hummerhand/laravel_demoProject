@@ -5,20 +5,20 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="img-box">
-                    <img src="{{ asset('assets/images/about-img.jpg') }}" alt="">
+                    <img src="/storage/abouts{{ $about->thumbnail }}" alt="">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="detail-box">
                     <div class="heading_container">
                         <h2>
-                            {{ __("О НАС") }}
+                            {{ $about->title }}
                         </h2>
                     </div>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        {{ $about->preview }}
                     </p>
-                    <a href="{{ route('about') }}">
+                    <a href="{{ route('about.about', $about->id) }}">
                         {{__("Read More")}}
                     </a>
                 </div>
